@@ -1,0 +1,10 @@
+ipykernel>=6.29.5
+torch>=2.6.0
+torchvision>=0.21.0
+torchaudio>=2.6.0
+opencv-python>=4.11.0.86
+matplotlib>=3.10.0
+av>=14.1.0
+ffmpeg-python>=0.2.0
+pymediainfo>=6.1.0
+tqdm>=4.67.1

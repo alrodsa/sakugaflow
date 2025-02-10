@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: sakugaflow
+Version: 0.0.1
+Summary: Base for a project
+Author: Alvaro Rodriguez
+License: EULA
+Requires-Python: ==3.10.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ipykernel>=6.29.5
+Requires-Dist: torch>=2.6.0
+Requires-Dist: torchvision>=0.21.0
+Requires-Dist: torchaudio>=2.6.0
+Requires-Dist: opencv-python>=4.11.0.86
+Requires-Dist: matplotlib>=3.10.0
+Requires-Dist: av>=14.1.0
+Requires-Dist: ffmpeg-python>=0.2.0
+Requires-Dist: pymediainfo>=6.1.0
+Requires-Dist: tqdm>=4.67.1
