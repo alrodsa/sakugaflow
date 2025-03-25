@@ -12,6 +12,9 @@ pdm.lock
 env/
 venv/
 
+# Dev container files
+.env
+
 # IDEs and editors
 .vscode/
 .idea/
