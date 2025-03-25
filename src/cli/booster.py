@@ -5,7 +5,7 @@ from src.constants.app import APP_NAME, ROOT_DIR
 
 def booster() -> None:
     """
-    Booster function
+    Booster function for the CLI. It will configure the application
+    and run the booster.
     """
     conf = configure(APP_NAME, ROOT_DIR, SakugaflowConf)
-    #print(conf)
