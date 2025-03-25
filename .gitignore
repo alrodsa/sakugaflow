@@ -13,7 +13,10 @@ env/
 venv/
 
 # Dev container files
-.env
+.devcontainer/.env
+
+# Local development files
+test.py
 
 # IDEs and editors
 .vscode/
