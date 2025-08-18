@@ -1,0 +1,84 @@
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 🧪 Entornos virtuales
+.venv/
+venv/
+ENV/
+env/
+.uv/
+.pyenv/
+*.env
+
+# 📦 Paquetes y dependencias
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+.installed.cfg
+*.manifest
+*.spec
+
+# 🗂️ Logs y archivos temporales
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# 📊 Datos y salidas
+*.sqlite3
+*.db
+*.pkl
+*.ckpt
+*.pth
+*.onnx
+*.h5
+*.pt
+
+# 📁 Jupyter
+.ipynb_checkpoints/
+*.ipynb_convert/
+
+# 🔧 Configuración IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# 🔐 Secretos
+*.pem
+*.key
+*.crt
+*.p12
+*.secrets/
+*.token
+*.credentials
+.env.*
+
+# 🧹 Cachés
+.mypy_cache/
+.pytest_cache/
+__pypackages__/
+.cache/
+coverage.*
+htmlcov/
+.tox/
+.nox/
+.pyre/
+.pytype/
+.dmypy.json
+dmypy.json
+
+# 🐳 Docker
+*.pid
+*.seed
+*.pid.lock
+
+# ⚙️ Devcontainer
+.devcontainer/*.log
+.devcontainer/*.bak
