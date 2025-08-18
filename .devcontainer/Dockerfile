@@ -32,7 +32,7 @@ RUN apt update -y && apt install -y \
 ARG USERNAME=sakugaflow
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-ARG RENDER_GID=110  # Reemplaza 110 por el GID correcto obtenido en el host (getent group render)
+ARG RENDER_GID=110
 
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
@@ -46,14 +46,16 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # ********************************************************
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 
-USER root
-
-RUN getent group render || groupadd -g $RENDER_GID render
-RUN usermod -aG render $USERNAME
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && getent group render || groupadd -g $RENDER_GID render \
+    && usermod -aG render $USERNAME
 
 USER $USERNAME
 
-RUN pip install --user pdm label-studio
+RUN pip install --user uv
 # Uses "robbyrussell" theme (original Oh My Zsh theme), with no plugins
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
     -t robbyrussell
