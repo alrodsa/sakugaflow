@@ -14,7 +14,8 @@ env/
 
 # 📦 Paquetes y dependencias
 *.egg
-*.egg-info/
+*.egg-info/*
+sakugaflow.egg-info/*
 dist/
 build/
 .eggs/
