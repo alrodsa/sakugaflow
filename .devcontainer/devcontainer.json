@@ -9,7 +9,6 @@
     "--privileged"
   ],
   "mounts": [
-    "source=/usr/share/vulkan/icd.d,target=/usr/share/vulkan/icd.d,type=bind,readonly",
     "source=/dev/dri,target=/dev/dri,type=bind"
   ],
   "containerEnv": {

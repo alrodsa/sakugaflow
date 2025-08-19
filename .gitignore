@@ -1,66 +1,85 @@
-# Byte-compiled / optimized / DLL files
+# 🐍 Python
 __pycache__/
 *.py[cod]
 *$py.class
 
-# PDM
-__pypackages__/
-pdm.lock
-
-# Virtual environment
+# 🧪 Virtual Environments
 .venv/
-env/
 venv/
+ENV/
+env/
+.uv/
+.pyenv/
+*.env
 
-# Dev container files
-.devcontainer/.env
+# 📦 Packages and Dependencies
+*.egg
+*.egg-info/*
+sakugaflow.egg-info/*
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+.installed.cfg
+*.manifest
+*.spec
 
-# Local development files
-test.py
+# 🗂️ Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
 
-# IDEs and editors
+# 📊 Data and outputs
+*.sqlite3
+*.db
+*.pkl
+*.ckpt
+*.pth
+*.onnx
+*.h5
+*.pt
+
+# 📁 Jupyter
+.ipynb_checkpoints/
+*.ipynb_convert/
+
+# 🔧 IDE Configuration
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
+*.code-workspace
 
-# OS-generated files
-.DS_Store
-Thumbs.db
-
-# Logs and debugging
-*.log
-logs/
-*.bak
-
-# Configs and secrets
-.env
+# 🔐 Secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.secrets/
+*.token
+*.credentials
 .env.*
-*.conf
 
-# Test cache
-.pytest_cache/
-.coverage
-coverage.xml
-htmlcov/
-
-# MyPy, Pylint, etc
+# 🧹 Caches
 .mypy_cache/
-.dmypy.json
+.pytest_cache/
+__pypackages__/
+.cache/
+coverage.*
+htmlcov/
+.tox/
+.nox/
 .pyre/
 .pytype/
+.dmypy.json
+dmypy.json
 
-# Build / distribution
-build/
-dist/
-*.egg-info/
-*.egg
-.eggs/
+# 🐳 Docker
+*.pid
+*.seed
+*.pid.lock
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Local tooling
-*.sqlite
-*.db
-*.lock
+# ⚙️ Devcontainer
+.devcontainer/*.log
+.devcontainer/*.bak
