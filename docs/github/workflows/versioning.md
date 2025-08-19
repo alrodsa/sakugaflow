@@ -20,6 +20,12 @@ git checkout develop
 git merge main
 ```
 
+## Visual Representation
+
+This diagram illustrates the branching and release process:
+
+![Release Please Workflow](./assets/versioning.png)
+
 ## ⚙️ Configuration
 
 The release-please configuration lives in:
