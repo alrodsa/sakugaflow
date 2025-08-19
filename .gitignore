@@ -11,6 +11,7 @@ env/
 .uv/
 .pyenv/
 *.env
+uv.lock
 
 # 📦 Packages and Dependencies
 *.egg
