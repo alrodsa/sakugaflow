@@ -1,0 +1,58 @@
+# Douga Configuration Example
+# This file shows all available configuration options for the douga command
+
+{
+  "processing": {
+    // Frame interpolation settings
+    "target_fps": 60.0,              // Target output framerate (24.0 - 240.0)
+    "interpolation_factor": null,    // Manual interpolation multiplier (overrides target_fps)
+    
+    // Quality settings
+    "quality": "high",               // Processing quality: "low", "medium", "high", "ultra"
+    "resolution_scale": 1.0,         // Resolution scaling factor (0.1 - 4.0)
+    
+    // Output settings
+    "output_format": "mp4",          // Output format: "mp4", "avi", "mkv", "mov"
+    "output_directory": null,        // Output directory (null = same as input)
+    "preserve_audio": true,          // Whether to preserve original audio
+    
+    // Processing options
+    "batch_size": 1,                 // Number of videos to process simultaneously (1-8)
+    "use_gpu": true,                 // Whether to use GPU acceleration
+    "temp_directory": null           // Temporary directory for processing
+  }
+}
+
+// Example configurations:
+
+// High-quality anime upscaling to 144fps
+{
+  "processing": {
+    "target_fps": 144.0,
+    "quality": "ultra",
+    "resolution_scale": 1.5,
+    "output_format": "mkv",
+    "use_gpu": true
+  }
+}
+
+// Fast batch processing
+{
+  "processing": {
+    "target_fps": 60.0,
+    "quality": "medium",
+    "batch_size": 4,
+    "output_directory": "./processed",
+    "force_overwrite": true
+  }
+}
+
+// Conservative interpolation
+{
+  "processing": {
+    "interpolation_factor": 2.0,
+    "quality": "high",
+    "preserve_audio": true,
+    "output_format": "mp4"
+  }
+}
