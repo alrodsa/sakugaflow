@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# 🧪 Entornos virtuales
+# 🧪 Virtual Environments
 .venv/
 venv/
 ENV/
@@ -12,7 +12,7 @@ env/
 .pyenv/
 *.env
 
-# 📦 Paquetes y dependencias
+# 📦 Packages and Dependencies
 *.egg
 *.egg-info/*
 sakugaflow.egg-info/*
@@ -24,7 +24,7 @@ pip-wheel-metadata/
 *.manifest
 *.spec
 
-# 🗂️ Logs y archivos temporales
+# 🗂️ Logs and temporary files
 *.log
 *.tmp
 *.temp
@@ -32,7 +32,7 @@ pip-wheel-metadata/
 *.swp
 *.swo
 
-# 📊 Datos y salidas
+# 📊 Data and outputs
 *.sqlite3
 *.db
 *.pkl
@@ -46,12 +46,12 @@ pip-wheel-metadata/
 .ipynb_checkpoints/
 *.ipynb_convert/
 
-# 🔧 Configuración IDEs
+# 🔧 IDE Configuration
 .vscode/
 .idea/
 *.code-workspace
 
-# 🔐 Secretos
+# 🔐 Secrets
 *.pem
 *.key
 *.crt
@@ -61,7 +61,7 @@ pip-wheel-metadata/
 *.credentials
 .env.*
 
-# 🧹 Cachés
+# 🧹 Caches
 .mypy_cache/
 .pytest_cache/
 __pypackages__/
