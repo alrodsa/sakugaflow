@@ -9,7 +9,8 @@
     "--privileged"
   ],
   "mounts": [
-    "source=/dev/dri,target=/dev/dri,type=bind"
+    "source=/dev/dri,target=/dev/dri,type=bind",
+    "source=${localEnv:HOME}/.gitconfig,target=/home/sakugaflow/.gitconfig,type=bind,consistency=cached"
   ],
   "containerEnv": {
     "NVIDIA_VISIBLE_DEVICES": "all",
@@ -42,7 +43,6 @@
           "**/__pycache__": true,
           "**/__pypackages__": true,
           "**/*.egg-info": true,
-          "**/.github": true,
           "**/.coverage": true,
           "**/.idea": true,
           "**/.pytest_cache": true,
