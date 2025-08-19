@@ -11,11 +11,12 @@ env/
 .uv/
 .pyenv/
 *.env
+uv.lock
 
 # 📦 Packages and Dependencies
 *.egg
 *.egg-info/*
-sakugaflow.egg-info/*
+*/sakugaflow.egg-info/*
 dist/
 build/
 .eggs/

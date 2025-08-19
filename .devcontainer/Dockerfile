@@ -29,6 +29,8 @@ RUN apt update -y && apt install -y \
     libopenh264-dev
 
 
+RUN pip install --no-cache-dir uv
+
 ARG USERNAME=sakugaflow
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
