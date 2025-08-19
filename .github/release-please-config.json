@@ -1,0 +1,24 @@
+{
+  "branches": [
+    {
+      "branch": "develop",
+      "release-type": "python",
+      "prerelease": true,
+      "prerelease-type": "dev",
+      "packages": {
+        ".": {
+          "package-name": "sakugaflow"
+        }
+      }
+    },
+    {
+      "branch": "main",
+      "release-type": "python",
+      "packages": {
+        ".": {
+          "package-name": "sakugaflow"
+        }
+      }
+    }
+  ]
+}
