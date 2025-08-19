@@ -42,6 +42,11 @@ pip-wheel-metadata/
 *.h5
 *.pt
 
+# 🎬 Video files and test outputs
+test_videos/
+*_interpolated.*
+test_config.*
+
 # 📁 Jupyter
 .ipynb_checkpoints/
 *.ipynb_convert/
