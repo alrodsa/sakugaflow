@@ -1,6 +1,6 @@
 import pyfiglet
 from wcwidth import wcswidth
-from src.constants.app import APP_NAME
+from src.constants.app import APP_NAME, ARGS_MAP
 from importlib.metadata import version, PackageNotFoundError
 
 
@@ -73,32 +73,36 @@ def banner() -> str:
 
 def execution_args(title: str = "Parameters", **kwargs) -> str:
     """
-    Pretty-print execution arguments inside a framed box with a title.
-
-    Parameters
-    ----------
-    title : str
-        The title of the box.
-    **kwargs : dict
-        Key-value pairs to display as parameters.
-
-    Returns
-    -------
-    str
-        A formatted string with the title and parameters, framed in a box.
+    Pretty-print execution arguments inside a framed box with emojis and aligned columns.
     """
+    # Preparar líneas con emoji + label
+    labels = []
+    values = []
+    for key, value in kwargs.items():
+        arg_info = ARGS_MAP.get(key, {"emoji": "🔹", "label": key})
+        emoji = arg_info["emoji"]
+        label = arg_info["label"]
+        labels.append(f"{emoji} {label}")
+        values.append(str(value))
+
+    # Calcular ancho máximo de la columna izquierda (visual, con emojis)
+    left_width = max(visual_len(lbl) for lbl in labels)
+
+    # Construir líneas "label: value"
     lines = [title, ""]
-    lines.extend(f"{key}: {value}" for key, value in kwargs.items())
+    for lbl, val in zip(labels, values):
+        pad = left_width - visual_len(lbl)
+        lines.append(f"{lbl}{' ' * pad}: {val}")
 
+    # Calcular ancho total
     width = max(visual_len(line) for line in lines)
-
     border = "=" * (width + 8)
-    output = [border]
 
+    # Render con marco
+    output = [border]
     for line in lines:
         pad = width - visual_len(line)
         output.append(f"||  {line}{' ' * pad}  ||")
-
     output.append(border)
 
     return "\n".join(output)
