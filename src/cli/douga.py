@@ -1,5 +1,8 @@
+import logging
 import math
 from pathlib import Path
+
+from constants.app import APP_NAME
 
 from src.utils.pprint import execution_args
 from src.constants.video import VIDEO_EXTENSIONS
@@ -73,8 +76,9 @@ def douga(input_directory: str, output_directory: str, fps_multiplier: int) -> N
     fps_multiplier : int
         The multiplier for the frames per second (FPS) of the videos.
     """
-    check_fps_multiplier(fps_multiplier)
+    logger: logging.Logger = logging.getLogger(APP_NAME)
 
+    check_fps_multiplier(fps_multiplier)
     print(
         execution_args(
             input_directory=input_directory,
@@ -82,17 +86,15 @@ def douga(input_directory: str, output_directory: str, fps_multiplier: int) -> N
             fps_multiplier=f"x{str(fps_multiplier)}"
         )
     )
-
     media_files = media_from_directory(input_directory)
-    print(f"[🎥] Media found: {media_files}")
-    print(f"Exponential: {int(math.log2(fps_multiplier))}")
+    logger.info(f"[🎥] Media found: {media_files}")
 
     config = SaibyoConf(
         interpolator=InterpolatorConf(
             exponential=int(math.log2(fps_multiplier)),
         )
     )
-    print(f"[⚙️] Configuration loaded: {config}")
+    logger.info(f"[⚙️] Configuration loaded: {config}")
 
     for media_file in tqdm(
         media_files,
@@ -102,11 +104,12 @@ def douga(input_directory: str, output_directory: str, fps_multiplier: int) -> N
         bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]",
         colour="green"
     ):
-        print(f"[🎬] Boosting up FPS from {media_file}")
-        Interpolator(config).run(
+        logger.info(f"[🎬] Boosting up FPS from {media_file}")
+        Interpolator(config, logger).run(
             input_path=media_file,
             output_folder=output_directory,
         )
-        print(f"[✅] Processed {media_file} and saved to {output_directory}")
+        logger.info(f"[✅] Processed {media_file} and saved to {output_directory}")
 
-# python main.py douga /workspaces/sakugaflow/data-sakugaflow/input /workspaces/sakugaflow/data-sakugaflow/output 4
+    logger.info(f"[🏁] All done! Processed {len(media_files)} media files.")
+
