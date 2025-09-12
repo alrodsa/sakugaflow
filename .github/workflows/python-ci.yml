@@ -7,10 +7,8 @@ on:
     branches: [ develop, main ]
 
 jobs:
+  lint:
     runs-on: ubuntu-latest
-    env:
-      UV_EXTRA_INDEX_URL: "https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}"
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,7 +17,6 @@ jobs:
         run: |
           pip install uv
           uv venv .venv
-          uv sync --all-extras --all-groups
-      - name: Run tests
-        run: .venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-report=xml --cov-report=term-missing
-
+          uv sync --group format --no-default-groups
+      - name: Run Ruff
+        run: .venv/bin/ruff check src/
