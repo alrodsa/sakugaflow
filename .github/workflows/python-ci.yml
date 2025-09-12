@@ -9,6 +9,8 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    env:
+      UV_EXTRA_INDEX_URL: "https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
