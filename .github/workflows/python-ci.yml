@@ -24,8 +24,7 @@ jobs:
         run: |
           pip install uv
           uv venv .venv
-          source .venv/bin/activate
-          python -m uv sync --group format --no-default-groups
+          uv sync --group format --no-default-groups
 
       - name: 🔧 Run Ruff Lint
         run: .venv/bin/ruff check src/
@@ -50,8 +49,7 @@ jobs:
         run: |
           pip install uv
           uv venv .venv
-          source .venv/bin/activate
-          python -m uv sync --all-extras --all-groups
+          uv sync --all-extras --all-groups
 
       - name: 🧪 Run Tests
         run: .venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-report=xml --cov-report=term-missing
