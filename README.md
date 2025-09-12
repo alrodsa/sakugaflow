@@ -184,4 +184,4 @@ This project is licensed under the **Apache License 2.0**. See the [LICENSE](/LI
 
 ## 👤 Author
 
-This project and also `saibyo` library are developed and maintained by [Alrodsa](https://github.com/alrodsa).
+`SakugaFlow` and also `saibyo` library are developed and maintained by **Alvaro R.** ([alrodsa](https://github.com/alrodsa)).
