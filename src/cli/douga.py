@@ -2,7 +2,7 @@ import logging
 import math
 from pathlib import Path
 
-from constants.app import APP_NAME
+from src.constants.app import APP_NAME
 
 from src.utils.pprint import execution_args
 from src.constants.video import VIDEO_EXTENSIONS
