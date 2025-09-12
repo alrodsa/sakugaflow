@@ -19,6 +19,6 @@ jobs:
         run: |
           pip install uv
           uv venv .venv
-          uv sync --group format --no-default-groups
+          uv sync --all-extras --all-groups
       - name: Run Ruff
         run: .venv/bin/ruff check src/
