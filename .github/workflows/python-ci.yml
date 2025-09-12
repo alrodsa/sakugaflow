@@ -10,8 +10,6 @@ jobs:
   lint:
     name: 🔍 Lint code with Ruff
     runs-on: ubuntu-latest
-    env:
-      UV_EXTRA_INDEX_URL: "https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}"
 
     steps:
       - name: ⬇️ Checkout code
