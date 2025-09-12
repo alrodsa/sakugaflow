@@ -41,11 +41,9 @@ def banner() -> str:
     Generate a banner with the application name and version, formatted in ASCII art.
     The banner includes the app name, version, and a tagline, all framed in a box.
     """
-    # ASCII Title
     ascii_lines = pyfiglet.figlet_format("Sakugaflow", font="slant").splitlines()
     width_ascii = len(max(ascii_lines, key=len))
 
-    # Info Box
     info_lines = [
         f"🌀 SakugaFlow v{get_version()}",
         "「動画をもっと滑らかに」",
@@ -75,7 +73,6 @@ def execution_args(title: str = "Parameters", **kwargs) -> str:
     """
     Pretty-print execution arguments inside a framed box with emojis and aligned columns.
     """
-    # Preparar líneas con emoji + label
     labels = []
     values = []
     for key, value in kwargs.items():
@@ -85,20 +82,16 @@ def execution_args(title: str = "Parameters", **kwargs) -> str:
         labels.append(f"{emoji} {label}")
         values.append(str(value))
 
-    # Calcular ancho máximo de la columna izquierda (visual, con emojis)
     left_width = max(visual_len(lbl) for lbl in labels)
 
-    # Construir líneas "label: value"
     lines = [title, ""]
     for lbl, val in zip(labels, values):
         pad = left_width - visual_len(lbl)
         lines.append(f"{lbl}{' ' * pad}: {val}")
 
-    # Calcular ancho total
     width = max(visual_len(line) for line in lines)
     border = "=" * (width + 8)
 
-    # Render con marco
     output = [border]
     for line in lines:
         pad = width - visual_len(line)
