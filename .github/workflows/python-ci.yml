@@ -30,3 +30,4 @@ jobs:
           uv sync --all-extras --all-groups
       - name: Run tests
         run: .venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-report=xml --cov-report=term-missing
+
