@@ -1,8 +1,8 @@
 from unittest import TestCase
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 from src.cli.main import main
 
-class MainCLITest(TestCase):
+class TestMainCLI(TestCase):
     @patch('fire.Fire')
     @patch('src.cli.main.douga')
     def test_cli_douga(self, mock_douga, mock_fire):
