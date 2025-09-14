@@ -84,3 +84,6 @@ dmypy.json
 # ⚙️ Devcontainer
 .devcontainer/*.log
 .devcontainer/*.bak
+
+# 📂 Data
+data-sakugaflow/
