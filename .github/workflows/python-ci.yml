@@ -16,12 +16,14 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Install uv + create venv + sync format deps
+      - name: Install uv + create venv + sync deps
+        env:
+          UV_EXTRA_INDEX_URL: https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}
         run: |
           python -m pip install --upgrade pip uv
           uv venv .venv
           . .venv/bin/activate
-          uv sync --group format
+          uv sync --all-extras --all-groups
 
       - name: Run Ruff
         run: |
@@ -37,7 +39,7 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Install uv + create venv + sync all deps
+      - name: Install uv + create venv + sync deps
         env:
           UV_EXTRA_INDEX_URL: https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}
         run: |
