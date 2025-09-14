@@ -1,9 +1,9 @@
 # 🌀 SakugaFlow: Anime Frame Rate Booster
 
 [![CI - Python UV](https://img.shields.io/badge/CI-Python%20UV-blue?logo=githubactions)](https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml)
-[![Publish](https://img.shields.io/badge/Publish-Package-orange?logo=pypi)](https://github.com/alrodsa/sakugaflow/actions/workflows/publish.yml)
-[![Release](https://img.shields.io/badge/Release-Automated-green?logo=github)](https://github.com/alrodsa/sakugaflow/actions/workflows/release-please.yml)
-[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube)](https://youtu.be/your-demo-link)
+[![Codecov](https://codecov.io/gh/alrodsa/sakugaflow/branch/develop/graph/badge.svg)](https://app.codecov.io/gh/alrodsa/sakugaflow)
+[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube)](https://youtu.be/NByIRUQXoUE)
+
 
 ![Demo GIF](assets/gifs/anime-fps-demo.gif)
 
