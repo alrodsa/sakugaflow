@@ -2,4 +2,4 @@
 
 export ENV=test
 
-python3 -m pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-report term-missing
+.venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-report=xml --cov-report=term-missing
