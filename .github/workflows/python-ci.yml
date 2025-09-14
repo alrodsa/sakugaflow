@@ -56,4 +56,10 @@ jobs:
       - name: Run tests with coverage
         run: |
           . .venv/bin/activate
-          .venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-report=xml
+          .venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-branch --cov-report=xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: alrodsa/sakugaflow
