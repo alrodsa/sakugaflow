@@ -1,35 +1,33 @@
-FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime
+FROM python:3.12-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    MPLBACKEND=Agg
 
-RUN apt update -y && apt install -y \
-    git \
-    python3-pip \
-    zsh \
-    wget \
-    apt-transport-https \
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+    bash-completion \
+    build-essential \
     ca-certificates \
-    python3-tk \
     curl \
-    lsb-release \
-    software-properties-common \
     ffmpeg \
+    git \
+    libdbus-1-3 \
+    libgl1 \
+    libglib2.0-0 \
+    libgomp1 \
+    libimage-exiftool-perl \
     libsm6 \
     libxext6 \
-    libimage-exiftool-perl \
-    libvulkan1 \
-    vulkan-tools \
-    libvulkan-dev \
-    libx264-dev \
-    libx265-dev \
-    libfdk-aac-dev \
-    libmp3lame-dev \
+    libxkbcommon0 \
+    lsb-release \
+    wget \
     yasm \
-    build-essential \
-    libopenh264-dev
+    zsh \
+    && rm -rf /var/lib/apt/lists/*
 
-
-RUN pip install --no-cache-dir uv
+RUN pip3 install --no-cache-dir uv
 
 ARG USERNAME=sakugaflow
 ARG USER_UID=1000
@@ -47,8 +45,3 @@ USER $USERNAME
 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
     -t robbyrussell
-
-
-
-
-

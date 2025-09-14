@@ -3,7 +3,7 @@ name = "sakugaflow"
 version = "0.10.0"
 description = "A tool for fps-booting your anime episodes with AI."
 readme = "README.md"
-requires-python = "==3.10.*"
+requires-python = ">=3.12"
 license = { text = "Apache-2.0" }
 
 authors = [
@@ -21,6 +21,7 @@ dependencies = [
   "saibyo>=0.1.0",
   "pyfiglet>=1.0.4",
   "wcwidth>=0.2.13",
+  "typing_extensions>=4.5.0"
 ]
 
 [dependency-groups]
