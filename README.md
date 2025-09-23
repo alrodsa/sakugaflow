@@ -24,7 +24,6 @@
 </p>
 
 
-
 ![Demo GIF](assets/gifs/anime-fps-demo.gif)
 
 > ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow (gifs has lower FPS and quality). 
