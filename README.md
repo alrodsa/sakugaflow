@@ -14,9 +14,9 @@
   <!-- Linter info -->
   <img src="https://img.shields.io/badge/linter-ruff-yellow?logo=ruff&logoColor=white&style=for-the-badge" alt="Linter"/>
   <!-- License -->
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/license-MIT-green?logo=opensourceinitiative&logoColor=white&style=for-the-badge" alt="License: MIT"/>
-  </a>
+   <a href="https://www.apache.org/licenses/LICENSE-2.0">
+      <img src="https://img.shields.io/badge/license-Apache%202.0-green?logo=apache&logoColor=white&style=for-the-badge" alt="License: Apache 2.0"/>
+   </a>
   <!-- YouTube Demo -->
   <a href="https://youtu.be/NByIRUQXoUE">
     <img src="https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&logoColor=white&style=for-the-badge" alt="YouTube Demo"/>
@@ -27,8 +27,8 @@
 
 ![Demo GIF](assets/gifs/anime-fps-demo.gif)
 
-> ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow.
-> Watch the [YouTube Demo](https://youtu.be/your-demo-link) for better results.
+> ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow (gifs has lower FPS and quality). 
+> Please **watch/download** the [Video Demo](https://mega.nz/file/PVcWCDJQ#u6gkFD4JhAW7XH5r2-y_phBidhWlTHPT6veYnhvuAhU) to see the real results.
 
 ## 🔎 Overview
 
