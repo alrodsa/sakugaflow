@@ -1,8 +1,30 @@
 # 🌀 SakugaFlow: Anime Frame Rate Booster
 
-[![CI - Python UV](https://img.shields.io/badge/CI-Python%20UV-blue?logo=githubactions)](https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml)
-[![Codecov](https://codecov.io/gh/alrodsa/sakugaflow/branch/develop/graph/badge.svg)](https://app.codecov.io/gh/alrodsa/sakugaflow/tree/develop)
-[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube)](https://youtu.be/NByIRUQXoUE)
+# 🌀 SakugaFlow: Anime Frame Rate Booster
+
+<p align="center">
+  <!-- Lint -->
+  <a href="https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/alrodsa/sakugaflow/python-ci.yml?branch=main&label=Lint&logo=github&logoColor=white&style=for-the-badge" alt="Lint Status"/>
+  </a>
+  <!-- Coverage -->
+  <a href="https://codecov.io/gh/alrodsa/sakugaflow/tree/develop">
+    <img src="https://img.shields.io/codecov/c/github/alrodsa/sakugaflow?logo=codecov&logoColor=white&style=for-the-badge" alt="Coverage"/>
+  </a>
+  <!-- Python version -->
+  <img src="https://img.shields.io/badge/python-3.12%2B-blue?logo=python&logoColor=white&style=for-the-badge" alt="Python Version"/>
+  <!-- Linter info -->
+  <img src="https://img.shields.io/badge/linter-ruff-yellow?logo=ruff&logoColor=white&style=for-the-badge" alt="Linter"/>
+  <!-- License -->
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/license-MIT-green?logo=opensourceinitiative&logoColor=white&style=for-the-badge" alt="License: MIT"/>
+  </a>
+  <!-- YouTube Demo -->
+  <a href="https://youtu.be/NByIRUQXoUE">
+    <img src="https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&logoColor=white&style=for-the-badge" alt="YouTube Demo"/>
+  </a>
+</p>
+
 
 
 ![Demo GIF](assets/gifs/anime-fps-demo.gif)
