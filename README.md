@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/github/actions/workflow/status/alrodsa/sakugaflow/python-ci.yml?branch=main&label=Lint&logo=github&logoColor=white&style=for-the-badge" alt="Lint Status"/>
   </a>
   <!-- Coverage -->
-  <a href="https://codecov.io/gh/alrodsa/sakugaflow/tree/develop">
+  <a href="https://codecov.io/gh/alrodsa/sakugaflow">
     <img src="https://img.shields.io/codecov/c/github/alrodsa/sakugaflow?logo=codecov&logoColor=white&style=for-the-badge" alt="Coverage"/>
   </a>
   <!-- Python version -->
@@ -17,10 +17,10 @@
    <a href="https://www.apache.org/licenses/LICENSE-2.0">
       <img src="https://img.shields.io/badge/license-Apache%202.0-green?logo=apache&logoColor=white&style=for-the-badge" alt="License: Apache 2.0"/>
    </a>
-  <!-- YouTube Demo -->
-  <a href="https://youtu.be/NByIRUQXoUE">
-    <img src="https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&logoColor=white&style=for-the-badge" alt="YouTube Demo"/>
-  </a>
+  <!-- Demo Video -->
+   <a href="https://mega.nz/embed/PVcWCDJQ#u6gkFD4JhAW7XH5r2-y_phBidhWlTHPT6veYnhvuAhU">
+      <img src="https://img.shields.io/badge/Video-Demo-red?logo=mega&logoColor=white&style=for-the-badge" alt="Demo Video on MEGA"/>
+   </a>
 </p>
 
 
