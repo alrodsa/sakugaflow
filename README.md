@@ -148,7 +148,7 @@ To install SakugaFlow in your local Python environment, follow these steps:
 
 At the end of this process, you will have SakugaFlow and its dependencies installed in your local Python environment.
 
-> [^1]: **Important:** These variables are required for SakugaFlow to install and use the privative library `saibyo` for frame interpolation, which is not included in the Devcontainer due to licensing restrictions. You will need to install it manually in the Devcontainer terminal. For more information, refer to the [saibyo installation instructions](./docs/guides/install_saibyo.md).
+> [^1]: **Important:** These variables are required for SakugaFlow to install and use the privative library `saibyo` for frame interpolation, which is not included in the Devcontainer due to licensing restrictions. You will need to install it manually in the Devcontainer terminal. For more information, refer to the [saibyo installation instructions](docs/guides/install_saibyo.md).
 
 ## 🚀 Usage: Boosting Anime FPS
 
