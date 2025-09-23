@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install uv + create venv + sync deps
+        env:
+          UV_EXTRA_INDEX_URL: https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}
+        run: |
+          python -m pip install --upgrade pip uv
+          uv venv .venv
+          . .venv/bin/activate
+          uv sync --all-extras --all-groups
+
+      - name: Run Ruff
+        run: |
+          . .venv/bin/activate
+          ruff check .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install uv + create venv + sync deps
+        env:
+          UV_EXTRA_INDEX_URL: https://_json_key_base64:${{ secrets.PYTHON_PASSWORD }}@${{ secrets.ARTIFACT_URL }}
+        run: |
+          python -m pip install --upgrade pip uv
+          uv venv .venv
+          . .venv/bin/activate
+          uv sync --all-extras --all-groups
+
+      - name: Run tests with coverage
+        run: |
+          . .venv/bin/activate
+          .venv/bin/pytest --cov=src tests/ -W ignore::DeprecationWarning --cov-branch --cov-report=xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: alrodsa/sakugaflow

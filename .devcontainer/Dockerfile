@@ -1,64 +1,47 @@
-FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime
+FROM python:3.12-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    MPLBACKEND=Agg
 
-RUN apt update -y && apt install -y \
-    git \
-    python3-pip \
-    zsh \
-    wget \
-    apt-transport-https \
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+    bash-completion \
+    build-essential \
     ca-certificates \
-    python3-tk \
     curl \
-    lsb-release \
-    software-properties-common \
     ffmpeg \
+    git \
+    libdbus-1-3 \
+    libgl1 \
+    libglib2.0-0 \
+    libgomp1 \
+    libimage-exiftool-perl \
     libsm6 \
     libxext6 \
-    libimage-exiftool-perl \
-    libvulkan1 \
-    vulkan-tools \
-    libvulkan-dev \
-    libx264-dev \
-    libx265-dev \
-    libfdk-aac-dev \
-    libmp3lame-dev \
+    libxkbcommon0 \
+    lsb-release \
+    wget \
     yasm \
-    build-essential \
-    libopenh264-dev
+    zsh \
+    && rm -rf /var/lib/apt/lists/*
 
+RUN pip3 install --no-cache-dir uv
 
 ARG USERNAME=sakugaflow
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-ARG RENDER_GID=110  # Reemplaza 110 por el GID correcto obtenido en el host (getent group render)
+ARG RENDER_GID=110
 
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    && apt-get update \
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
-
-# ********************************************************
-# * Anything else you want to do like clean up goes here *
-# ********************************************************
-# [Optional] Set the default user. Omit if you want to keep the default as root.
-
-USER root
-
-RUN getent group render || groupadd -g $RENDER_GID render
-RUN usermod -aG render $USERNAME
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && getent group render || groupadd -g $RENDER_GID render \
+    && usermod -aG render $USERNAME
 
 USER $USERNAME
 
-RUN pip install --user pdm label-studio
-# Uses "robbyrussell" theme (original Oh My Zsh theme), with no plugins
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
     -t robbyrussell
-
-
-
-
-

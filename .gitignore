@@ -1,0 +1,89 @@
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 🧪 Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+.uv/
+.pyenv/
+*.env
+uv.lock
+
+# 📦 Packages and Dependencies
+*.egg
+*.egg-info/*
+*/sakugaflow.egg-info/*
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+.installed.cfg
+*.manifest
+*.spec
+
+# 🗂️ Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# 📊 Data and outputs
+*.sqlite3
+*.db
+*.pkl
+*.ckpt
+*.pth
+*.onnx
+*.h5
+*.pt
+
+# 📁 Jupyter
+.ipynb_checkpoints/
+*.ipynb_convert/
+
+# 🔧 IDE Configuration
+.vscode/
+.idea/
+*.code-workspace
+
+# 🔐 Secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.secrets/
+*.token
+*.credentials
+.env.*
+
+# 🧹 Caches
+.mypy_cache/
+.pytest_cache/
+__pypackages__/
+.cache/
+coverage.*
+htmlcov/
+.tox/
+.nox/
+.pyre/
+.pytype/
+.dmypy.json
+dmypy.json
+
+# 🐳 Docker
+*.pid
+*.seed
+*.pid.lock
+
+# ⚙️ Devcontainer
+.devcontainer/*.log
+.devcontainer/*.bak
+
+# 📂 Data
+data-sakugaflow/
