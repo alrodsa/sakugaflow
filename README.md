@@ -1,14 +1,33 @@
 # 🌀 SakugaFlow: Anime Frame Rate Booster
 
-[![CI - Python UV](https://img.shields.io/badge/CI-Python%20UV-blue?logo=githubactions)](https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml)
-[![Codecov](https://codecov.io/gh/alrodsa/sakugaflow/branch/develop/graph/badge.svg)](https://app.codecov.io/gh/alrodsa/sakugaflow/tree/develop)
-[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube)](https://youtu.be/NByIRUQXoUE)
+<p align="center">
+  <!-- Lint -->
+  <a href="https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/alrodsa/sakugaflow/python-ci.yml?branch=main&label=Lint&logo=github&logoColor=white&style=for-the-badge" alt="Lint Status"/>
+  </a>
+  <!-- Coverage -->
+  <a href="https://codecov.io/gh/alrodsa/sakugaflow/tree/develop">
+    <img src="https://img.shields.io/codecov/c/github/alrodsa/sakugaflow?logo=codecov&logoColor=white&style=for-the-badge" alt="Coverage"/>
+  </a>
+  <!-- Python version -->
+  <img src="https://img.shields.io/badge/python-3.12%2B-blue?logo=python&logoColor=white&style=for-the-badge" alt="Python Version"/>
+  <!-- Linter info -->
+  <img src="https://img.shields.io/badge/linter-ruff-yellow?logo=ruff&logoColor=white&style=for-the-badge" alt="Linter"/>
+  <!-- License -->
+   <a href="https://www.apache.org/licenses/LICENSE-2.0">
+      <img src="https://img.shields.io/badge/license-Apache%202.0-green?logo=apache&logoColor=white&style=for-the-badge" alt="License: Apache 2.0"/>
+   </a>
+  <!-- YouTube Demo -->
+  <a href="https://youtu.be/NByIRUQXoUE">
+    <img src="https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&logoColor=white&style=for-the-badge" alt="YouTube Demo"/>
+  </a>
+</p>
 
 
 ![Demo GIF](assets/gifs/anime-fps-demo.gif)
 
-> ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow.
-> Watch the [YouTube Demo](https://youtu.be/your-demo-link) for better results.
+> ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow (gifs have lower FPS and quality). 
+> Please **watch/download** the [Video Demo](https://mega.nz/embed/PVcWCDJQ#u6gkFD4JhAW7XH5r2-y_phBidhWlTHPT6veYnhvuAhU) to see the real results.
 
 ## 🔎 Overview
 
@@ -128,7 +147,7 @@ To install SakugaFlow in your local Python environment, follow these steps:
 
 At the end of this process, you will have SakugaFlow and its dependencies installed in your local Python environment.
 
-> [^1]: **Important:** These variables are required for SakugaFlow to install and use the privative library `saibyo` for frame interpolation, which is not included in the Devcontainer due to licensing restrictions. You will need to install it manually in the Devcontainer terminal. For more information, refer to the [saibyo installation instructions](/docs/guides/install_saibyo.md).
+> [^1]: **Important:** These variables are required for SakugaFlow to install and use the privative library `saibyo` for frame interpolation, which is not included in the Devcontainer due to licensing restrictions. You will need to install it manually in the Devcontainer terminal. For more information, refer to the [saibyo installation instructions](docs/guides/install_saibyo.md).
 
 ## 🚀 Usage: Boosting Anime FPS
 
