@@ -1,7 +1,5 @@
 # 🌀 SakugaFlow: Anime Frame Rate Booster
 
-# 🌀 SakugaFlow: Anime Frame Rate Booster
-
 <p align="center">
   <!-- Lint -->
   <a href="https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml">
