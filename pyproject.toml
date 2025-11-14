@@ -1,7 +1,7 @@
 [project]
 name = "sakugaflow"
 version = "0.10.0"
-description = "A tool for fps-booting your anime episodes with AI."
+description = "AI-powered tool to boost FPS in anime, making 24fps scenes smoother by interpolating frames with Deep Learning."
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "Apache-2.0" }
@@ -18,10 +18,10 @@ dependencies = [
   "opencv-python>=4.11.0.86",
   "pydantic>=2.10.6",
   "fire>=0.7.0",
-  "saibyo>=0.1.0",
+  "saibyo>=0.13.0",
   "pyfiglet>=1.0.4",
   "wcwidth>=0.2.13",
-  "typing_extensions>=4.5.0"
+  "typing_extensions>=4.5.0",
 ]
 
 [dependency-groups]
