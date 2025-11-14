@@ -238,10 +238,10 @@ Each output entry includes:
 6. Cloud Run stores progress in **Firestore/Redis**  
 7. Client polls `/status/{job_id}` + `/result/{job_id}`  
 
-## 📈 Cloud Architecture Diagram
+### 📈 Cloud Architecture Diagram
 
 <p align="center">
-  <img src="assets/images/cloud-architecture.png" width="85%" />
+  <img src="assets/images/cloud-architecture.png" width="100%" />
 </p>
 
 
