@@ -1,4 +1,8 @@
-# 🌀 SakugaFlow: Anime Frame Rate Booster
+![Sakugaflow Logo](assets/images/sakugaflow-logo-light.png#gh-light-mode-only)
+
+![Sakugaflow Logo Dark](assets/images/sakugaflow-logo-dark.png#gh-dark-mode-only)
+
+
 
 <p align="center">
   <!-- Lint -->
@@ -8,6 +12,10 @@
   <!-- Coverage -->
   <a href="https://codecov.io/gh/alrodsa/sakugaflow">
     <img src="https://img.shields.io/codecov/c/github/alrodsa/sakugaflow?logo=codecov&logoColor=white&style=for-the-badge" alt="Coverage"/>
+  </a>
+  <!-- CI workflow -->
+  <a href="https://github.com/alrodsa/sakugaflow/actions/workflows/python-ci.yml">
+  <img src="https://img.shields.io/github/actions/workflow/status/alrodsa/sakugaflow/python-ci.yml?label=CI&logo=githubactions&logoColor=white&style=for-the-badge" alt="CI Status"/>
   </a>
   <!-- Python version -->
   <img src="https://img.shields.io/badge/python-3.12%2B-blue?logo=python&logoColor=white&style=for-the-badge" alt="Python Version"/>
@@ -24,9 +32,9 @@
 </p>
 
 
-![Demo GIF](assets/gifs/anime-fps-demo.gif)
+![Demo GIF](assets/images/anime-fps-demo.gif)
 
-> ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow (gifs have lower FPS and quality). 
+> ⚠️ **IMPORTANT:** The gif above may not reflect the full potential of SakugaFlow (gifs have lower FPS and quality).
 > Please **watch/download** the [Video Demo](https://mega.nz/embed/PVcWCDJQ#u6gkFD4JhAW7XH5r2-y_phBidhWlTHPT6veYnhvuAhU) to see the real results.
 
 ## 🔎 Overview
@@ -60,94 +68,53 @@ The main features of SakugaFlow include:
 
 ## 🐍 Installation
 
-There are two main ways to install SakugaFlow and its dependencies:
+To install SakugaFlow dependencies there are two main options: using a **Devcontainer** (recommended) or installing it in your local Python environment.
 
-1. Using Devcontainer (recommended for development).
-2. In local Python environment.
+### Option 1: Using Devcontainer (Recommended)
 
-### Using Devcontainer (Recommended for Development)
+1. Ensure you have **Docker** and **VSCode** installed with the **Dev Containers** extension.
 
-To set up the development environment using Devcontainer, follow these steps:
-
-1. Ensure you have [Visual Studio Code](https://code.visualstudio.com/) installed.
-2. Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
-3. Clone the SakugaFlow repository:
+2. Clone the SakugaFlow repository:
 
    ```bash
     git clone https://github.com/alrodsa/sakugaflow.git
    ```
 
-4. Open the cloned repository in Visual Studio Code.
-5. Create an `.env` file in the `.devcontainer` folder with the following variables [^1]:
+3. Open the repository in VSCode.
+4. Reopen the folder in the Devcontainer:
 
-   ```env
-    PYTHON_PASSWORD=token
-    ARTIFACT_URL=url
-   ```
+   - Press `F1` and select `Dev Containers: Reopen in Container`.
 
-6. Press `F1` and select `Remote-Containers: Reopen in Container`.
+5. Once the Devcontainer is built and running all dependencies will be installed automatically.
 
-Once these steps are completed, the Devcontainer will build the environment with all necessary dependencies installed.
+### Option 2: Local Python Environment
 
-### In Local Python Environment
+1. Ensure you have **Python 3.12+** installed on your system.
 
-To install SakugaFlow in your local Python environment, follow these steps:
-
-1. Clone the SakugaFlow repository:
+2. Clone the SakugaFlow repository:
 
    ```bash
     git clone https://github.com/alrodsa/sakugaflow.git
-   ```
-
-2. Navigate to the cloned directory:
-
-   ```bash
     cd sakugaflow
    ```
 
-3. Create a virtual environment (recommended):
+3. Install `uv` package manager with pip:
 
    ```bash
-    python -m venv venv
+      pip install --no-cache-dir uv
    ```
 
-4. Activate the virtual environment:
-
-   - On Windows:
-
-     ```bash
-      venv\Scripts\activate
-     ```
-
-   - On macOS/Linux:
-
-     ```bash
-      source venv/bin/activate
-     ```
-
-5. Export the required environment variables [^1]:
+4. Create and activate a virtual environment with `uv`:
 
    ```bash
-    export PYTHON_PASSWORD=token
-    export ARTIFACT_URL=url
-    export UV_EXTRA_INDEX_URL="https://_json_key_base64:${PYTHON_PASSWORD}@${ARTIFACT_URL}"
+      uv venv
    ```
 
-6. Install `uv`:
+5. Install all dependencies with `uv`:
 
    ```bash
-    pip install uv
+    uv sync --all-groups
    ```
-
-7. Install **SakugaFlow** dependencies:
-
-   ```bash
-    python -m uv sync --all-extras --all-groups
-   ```
-
-At the end of this process, you will have SakugaFlow and its dependencies installed in your local Python environment.
-
-> [^1]: **Important:** These variables are required for SakugaFlow to install and use the privative library `saibyo` for frame interpolation, which is not included in the Devcontainer due to licensing restrictions. You will need to install it manually in the Devcontainer terminal. For more information, refer to the [saibyo installation instructions](docs/guides/install_saibyo.md).
 
 ## 🚀 Usage: Boosting Anime FPS
 
@@ -197,10 +164,91 @@ douga(
 
 This will achieve the same result as the CLI example above, boosting the FPS of videos in the specified input directory and saving them to the output directory.
 
+## ☁️ Future Cloud Architecture (Planned)
+
+SakugaFlow aims to support a complete **cloud-native anime interpolation pipeline**, enabling automated FPS boosting for full episodes using scalable GPU infrastructure on Google Cloud.
+
+### 🔹 1. Cloud Run — Public API Layer
+Cloud Run will expose secure endpoints:
+
+- `POST /interpolate` → upload video or provide a GCS path  
+- `GET /status/{job_id}` → check inference progress  
+- `GET /result/{job_id}` → retrieve output metadata  
+
+**Responsibilities:**
+- Validate requests  
+- Upload video to GCS  
+- Trigger Vertex AI job with dynamic parameters  
+- Return a `job_id` for polling  
+
+### 🔹 2. Vertex AI — On-Demand GPU Inference
+
+When Cloud Run receives a request:
+
+1. A **Vertex AI Custom Job** is created dynamically  
+2. The job spins up a GPU instance (A2, L4, etc.)  
+3. Runs Saibyo interpolation inside a container  
+4. Saves the output video to a dedicated GCS bucket  
+5. Emits progress updates via Pub/Sub  
+
+**Parameters sent from Cloud Run to Vertex AI:**
+
+- `EXP` (fps multiplier)  
+- `LIGHTWEIGHT` (fp16 or fp32)  
+- `MODEL_VERSION`  
+- `INPUT_PATH`, `OUTPUT_PATH`  
+- `PUBSUB_TOPIC`  
+
+This ensures **autoscaling**, **zero idle GPU cost**, and **predictable pricing**.
+
+### 🔹 3. Pub/Sub — Job Progress Stream
+
+Vertex AI publishes status events:
+
+- `QUEUED`  
+- `STARTED`  
+- `INFERENCE`  
+- `WRITING_OUTPUT`  
+- `DONE` / `FAILED`  
+
+Cloud Run ingests them into a **state cache** (Firestore or Redis) for fast API responses.
+
+### 🔹 4. GCS Buckets — Storage Layer
+
+Two buckets are planned:
+
+| Bucket | Description |
+|--------|-------------|
+| `anime-input/` | Raw uploads from clients |
+| `anime-output/` | FPS-boosted videos generated by Vertex AI |
+
+Each output entry includes:
+
+- Final video (`.mp4`)  
+- Metadata (`fps`, duration, exp, model version)  
+- Logs  
+
+### 🔹 5. High-Level Workflow Summary
+
+1. Client uploads vídeo → **Cloud Run**  
+2. Cloud Run validates + stores input in **GCS**  
+3. Cloud Run triggers **Vertex AI GPU job**  
+4. Vertex AI runs **Saibyo** → writes output to GCS  
+5. Job emits state updates via **Pub/Sub**  
+6. Cloud Run stores progress in **Firestore/Redis**  
+7. Client polls `/status/{job_id}` + `/result/{job_id}`  
+
+### 📈 Cloud Architecture Diagram
+
+<p align="center">
+  <img src="assets/images/cloud-architecture.png" width="100%" />
+</p>
+
+
 ## 📝 License
 
 This project is licensed under the **Apache License 2.0**. See the [LICENSE](/LICENSE) file for details.
 
 ## 👤 Author
 
-`SakugaFlow` and also `saibyo` library are developed and maintained by **Alvaro R.** ([alrodsa](https://github.com/alrodsa)).
+**Alvaro R** - [alrodsa](https://github.com/alrodsa).
